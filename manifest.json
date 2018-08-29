@@ -1,0 +1,34 @@
+{
+   "background": {
+      "page": "./pages/background.html"
+   },
+   "browser_action": {
+      "default_icon": "icons/icon.png",
+      "default_popup": "./pages/popup.html"
+   },
+
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "scripts/jquery.min.js", "in_content/in_content.js"],
+      "matches": [ "<all_urls>" ],
+      "run_at": "document_start"
+   } ],
+
+   "description": "一键摘录,永久保存,轻松构建自己的在线灵感库和图书馆",
+   "externally_connectable": {
+      "matches": [ "*://*.funp.in/*", "*://funp.in/*" ]
+   },
+   "icons": {
+      "128": "icons/icon-large.png",
+      "16": "icons/icon-bitty.png",
+      "32": "icons/icon-nousenow.png",
+      "48": "icons/icon-small.png"
+   },
+   "manifest_version": 2,
+   "name": "STUPID",
+   "options_page": "./pages/options.html",
+   "permissions": [ "<all_urls>", "contextMenus", "downloads", "tabs", "geolocation", "webRequest", "webRequestBlocking", "clipboardWrite", "clipboardRead" ],
+
+   "version": "0.0.0.2",
+   "web_accessible_resources": [ "in_content/in_content.js", "images/w-qrcode.png", "images/zhai.png", "images/ajax-loader.gif", "images/switcher_c.png", "images/ok-done.png", "images/ok-done-cyan.png", "images/ok-saved.png", "images/video-drag.png", "images/video-drag-tip.png", "images/erweima.png",  "images/switch_back.png", "images/avatar_06.jpg", "images/white-logo.png", "scripts/jquery.min.js",  "images/quick_add.gif", "images/switch.gif", "images/drag_download.gif" ]
+}
