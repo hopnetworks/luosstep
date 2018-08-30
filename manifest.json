@@ -9,15 +9,15 @@
 
    "content_scripts": [ {
       "all_frames": true,
-      "js": [ "scripts/jquery.min.js", "in_content/in_content.js"],
-      "css":["in_content/in_content.css"],
+      "js": [ "scripts/jquery.min.js", "in_content/side_bar.js","in_content/docs_control.js"],
+      "css":["in_content/side_bar.css","in_content/docs_control.css"],
       "matches": [ "<all_urls>" ],
       "run_at": "document_start"
    } ],
 
    "description": "一步两步，是魔鬼的步伐！",
    "externally_connectable": {
-      "matches": [ "*://*.funp.in/*", "*://funp.in/*" ]
+      "matches": [ "" ]
    },
    "icons": {
       "128": "icons/icon-large.png",
@@ -30,6 +30,6 @@
    "options_page": "./pages/options.html",
    "permissions": [ "<all_urls>", "contextMenus", "downloads", "tabs", "geolocation", "webRequest", "webRequestBlocking", "clipboardWrite", "clipboardRead" ],
 
-   "version": "0.0.2",
-   "web_accessible_resources": [ "in_content/in_content.js", "images/w-qrcode.png", "images/zhai.png", "images/ajax-loader.gif", "images/switcher_c.png", "images/ok-done.png", "images/ok-done-cyan.png", "images/ok-saved.png", "images/video-drag.png", "images/video-drag-tip.png", "images/erweima.png",  "images/switch_back.png", "images/avatar_06.jpg", "images/white-logo.png", "scripts/jquery.min.js",  "images/quick_add.gif", "images/switch.gif", "images/drag_download.gif","in_content/in_content.html" ]
+   "version": "0.0.3",
+   "web_accessible_resources": [ "in_content/side_bar.js", "images/w-qrcode.png", "images/zhai.png", "images/ajax-loader.gif", "images/switcher_c.png", "images/ok-done.png", "images/ok-done-cyan.png", "images/ok-saved.png", "images/video-drag.png", "images/video-drag-tip.png", "images/erweima.png",  "images/switch_back.png", "images/avatar_06.jpg", "images/white-logo.png", "scripts/jquery.min.js",  "images/quick_add.gif", "images/switch.gif", "images/drag_download.gif","in_content/in_content.html" ]
 }
