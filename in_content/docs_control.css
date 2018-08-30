@@ -1,0 +1,44 @@
+div.docs_ctrl{
+    font-size:          15px                    !important ;
+    color:              #ddd                    !important ;
+    background-color:   rgba(10,10,10,0.5)      !important ;
+    z-index:            9999999999999999999999  !important ;
+    position:           fixed                   !important ;
+    display:            inline-block            !important ;
+    top:                0                       !important ;
+    right:              30px                    !important ;
+    text-align:         center                  !important ;
+    box-shadow:         0px 0px 10px #666       ; 
+}
+
+div.docs_ctrl > div.collapse_act{
+
+    height:             10px                     !important ;
+    /* width:              20px                    ; */
+    
+    
+    
+}
+
+
+div.docs_ctrl > div.general_ctrl{
+
+    height:             160px                     !important ;
+    width:              40px                    ;
+    
+    
+    
+}
+
+
+div.docs_ctrl > div.general_ctrl > div.general_ctrl_button{
+    overflow:           hidden;
+    width:              40px                    ;
+    height:             40px                    ;
+    
+    
+}
+
+div.docs_ctrl > div.general_ctrl > div.general_ctrl_button:hover{
+    background-color:  #999;
+}
