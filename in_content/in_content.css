@@ -1,0 +1,28 @@
+.injected_chrome_extention.ghost_drop{
+    color:              #ddd                    !important ;
+    background-color:   rgba(10,10,10,0.5)      !important ;
+    z-index:            99999999                !important ;
+    position:           fixed                   !important ;
+    height:             100vh                   !important ;
+    width:              80px                    !important ;
+    top:                0                       !important ;
+    left:               0                       !important ;
+    text-align:         center                  !important ;
+}
+
+.injected_chrome_extention.ghost_drop.active{
+    
+    background-color:   rgba(10,10,10,0.9)      !important ;
+    
+}
+
+
+
+.injected_chrome_extention.ghost_drop > .buttons_container_div > .button_div{
+    display:            inline-box; 
+    width:              60px;       
+    height:             60px;       
+    background-color:   red;
+    
+    
+}

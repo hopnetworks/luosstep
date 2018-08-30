@@ -10,6 +10,7 @@
    "content_scripts": [ {
       "all_frames": true,
       "js": [ "scripts/jquery.min.js", "in_content/in_content.js"],
+      "css":["in_content/in_content.css"],
       "matches": [ "<all_urls>" ],
       "run_at": "document_start"
    } ],
@@ -30,5 +31,5 @@
    "permissions": [ "<all_urls>", "contextMenus", "downloads", "tabs", "geolocation", "webRequest", "webRequestBlocking", "clipboardWrite", "clipboardRead" ],
 
    "version": "0.0.0.2",
-   "web_accessible_resources": [ "in_content/in_content.js", "images/w-qrcode.png", "images/zhai.png", "images/ajax-loader.gif", "images/switcher_c.png", "images/ok-done.png", "images/ok-done-cyan.png", "images/ok-saved.png", "images/video-drag.png", "images/video-drag-tip.png", "images/erweima.png",  "images/switch_back.png", "images/avatar_06.jpg", "images/white-logo.png", "scripts/jquery.min.js",  "images/quick_add.gif", "images/switch.gif", "images/drag_download.gif" ]
+   "web_accessible_resources": [ "in_content/in_content.js", "images/w-qrcode.png", "images/zhai.png", "images/ajax-loader.gif", "images/switcher_c.png", "images/ok-done.png", "images/ok-done-cyan.png", "images/ok-saved.png", "images/video-drag.png", "images/video-drag-tip.png", "images/erweima.png",  "images/switch_back.png", "images/avatar_06.jpg", "images/white-logo.png", "scripts/jquery.min.js",  "images/quick_add.gif", "images/switch.gif", "images/drag_download.gif","in_content/in_content.html" ]
 }
