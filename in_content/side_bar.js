@@ -11,13 +11,10 @@ document.addEventListener('DOMContentLoaded', function(){
     console.log('STUPID被执行了！');
     side_bar_div = $("<div></div>");
     side_bar_div.addClass("injected_chrome_extention   ghost_drop");
-    //side_bar_div_html=$.ajax({url:chrome.extension.getURL("/in_content/in_content.html"),async:false}).responseText;
-    ////side_bar_div.load(chrome.extension.getURL("/in_content/in_content.html"));    //Sync!
-    ////console.log(side_bar_div_html);
-    //side_bar_div.html(side_bar_div_html);
+
     
     
-    //side_bar_div.hide();                       //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    side_bar_div.hide();                       //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     
     title_div = $("<div>Title</div>");
     title_div.addClass("title");
@@ -52,22 +49,41 @@ document.addEventListener('DOMContentLoaded', function(){
             dt = evt.originalEvent.dataTransfer;
             dt = dt.getData('Text');
             dt = encodeURIComponent(dt);
-            var opened_window_list = new Array();
-            opened_window_list[0] = window.open("//www.baidu.com/s?wd="+dt);    
-            opened_window_list[1] = window.open("//www.bing.com/search?q="+dt);  
-            opened_window_list[2] = window.open("//www.sogou.com/web?query="+dt);   
-            for(counter = 0; counter < opened_window_list.length; counter++) {
-                target = $(opened_window_list[counter].document).children("html");
-                console.log(target);
-                
-                
-                page_ctrl_div = $("<div></div>");
-                page_ctrl_div.css("height","100px");
-                page_ctrl_div.css("width","100px");
-                
-                
-                target.append(page_ctrl_div);
+            //var opened_window_list = new Array();
+            chrome.runtime.sendMessage({msg_type:"to_clear_exploded_list"}, function(response) {
+                console.log(response.msg);
+            });
+            
+            message = {
+                msg_type:"to_open_exploded_tag",
+                url:"http://www.baidu.com/s?wd="+dt,
+                name:"baidu_web_pages",
+                disp:"百度网页搜索"
             }
+            chrome.runtime.sendMessage(message, function(response) {
+                console.log(response.msg);
+            });
+            
+            
+            message = {
+                msg_type:"to_open_exploded_tag",
+                url:"http://www.bing.com/search?q="+dt,
+                name:"bing_web_pages",
+                disp:"必应网页搜索"
+            }
+            chrome.runtime.sendMessage(message, function(response) {
+                console.log(response.msg);
+            });
+            
+            message = {
+                msg_type:"to_open_exploded_tag",
+                url:"http://www.sogou.com/web?query="+dt,
+                name:"sougou_web_pages",
+                disp:"搜狗网页搜索"
+            }
+            chrome.runtime.sendMessage(message, function(response) {
+                console.log(response.msg);
+            });
     });
     
     drop_icon_shopping_search = drop_icon_div.clone();
@@ -76,22 +92,41 @@ document.addEventListener('DOMContentLoaded', function(){
             dt = evt.originalEvent.dataTransfer;
             dt = dt.getData('Text');
             //dt = encodeURI(dt);
-            window.open("//s.taobao.com/search?q="+dt);    
-            window.open("//search.jd.com/Search?enc=utf-8&keyword="+dt);  
-            window.open("//category.vip.com/suggest.php?keyword="+dt);   
+            chrome.runtime.sendMessage({msg_type:"to_clear_exploded_list"}, function(response) {
+                console.log(response.msg);
+            });
+            
+            message = {
+                msg_type:"to_open_exploded_tag",
+                url:"http://s.taobao.com/search?q="+dt,
+                name:"taobao",
+                disp:"淘宝搜索"
+            }
+            chrome.runtime.sendMessage(message, function(response) {
+                console.log(response.msg);
+            });
+            
+            message = {
+                msg_type:"to_open_exploded_tag",
+                url:"http://search.jd.com/Search?enc=utf-8&keyword="+dt,
+                name:"jd",
+                disp:"京东"
+            }
+            chrome.runtime.sendMessage(message, function(response) {
+                console.log(response.msg);
+            });
+            
+            message = {
+                msg_type:"to_open_exploded_tag",
+                url:"http://category.vip.com/suggest.php?keyword="+dt,
+                name:"vip",
+                disp:"唯品会"
+            }
+            chrome.runtime.sendMessage(message, function(response) {
+                console.log(response.msg);
+            });
     });
     
-    
-    drop_icon_e_components_search = drop_icon_div.clone();
-    drop_icon_e_components_search.html("SHOP");
-    drop_icon_e_components_search.on("drop",function(evt){
-            dt = evt.originalEvent.dataTransfer;
-            dt = dt.getData('Text');
-            //dt = encodeURI(dt);
-            window.open("//s.taobao.com/search?q="+dt);    
-            window.open("//search.jd.com/Search?enc=utf-8&keyword="+dt);  
-            window.open("//category.vip.com/suggest.php?keyword="+dt);   
-    });
     
     icons_container_div.append(drop_icon_web_search)
         .append(drop_icon_shopping_search)
@@ -147,8 +182,8 @@ document.addEventListener('DOMContentLoaded', function(){
         
         
     });
-    //if (true) {  
-    if (window.frames.length == parent.frames.length  && window.parent == window) {  
+    if ( window.parent == window) {  
+    //if (window.frames.length == parent.frames.length  && window.parent == window) {  
 
 
         
